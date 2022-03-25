@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,8 @@ Route::get('students', [ApiController::class, 'getAllStudents']);
 Route::get('students/{id}', [ApiController::class, 'getStudent']);
 Route::put('students/{id}', [ApiController::class, 'updateStudent']);
 Route::delete('students/{id}', [ApiController::class, 'deleteStudent']);
+
+Route::get('/folders/{id}/tasks', [TaskController::class, 'index']);
 
 // Protected routes
 Route::group(['middleware' => ['auth:sanctum']], function() {
